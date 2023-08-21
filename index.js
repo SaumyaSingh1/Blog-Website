@@ -9,7 +9,11 @@ import {Post} from "./postModel.js"; // Import the Mongoose model
 import {config} from "dotenv"
 config();
 const MongoUrl = process.env.MongoUrl;
+// Get the directory path of the current module
+const currentModulePath = new URL(import.meta.url).pathname;
 
+// Set the views directory
+const viewsPath = path.join(path.dirname(currentModulePath), 'views');
 mongoose.connect(MongoUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -17,7 +21,7 @@ mongoose.connect(MongoUrl, {
 .catch((err)=>console.log("not connected"));
 const app=express();
 // Set the views directory
-const viewsPath = path.join(__dirname, 'views');
+
 app.set('views', viewsPath);
 const port=process.env.PORT;
 app.set("view engine","ejs");
