@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap link for header -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include("../partials/headersec.ejs"); -%>
+
+    <header class="compose">
+      
+<!-- enctype neccesary to put upload img -->
+        <form class="" action="/newpage" method="post" enctype="multipart/form-data">
+            <div class="banner">
+                <input type="file" accept="image/*" id="banner-upload" name="postImage" hidden>
+                <label for="banner-upload" class="banner-upload-btn"><img src="\uploads\download.png" alt="upload image "></label>
+            </div>
+        
+            <div class="blog">
+                <textarea type="text" class="title" placeholder="Blog title..." name="postTitle"></textarea>
+                <textarea type="text" class="article" placeholder="Start writing here..." name="postBody"></textarea>
+            </div>
+
+            
+        
+            <div class="blog-options">
+                <button class="btn btn-primary" type="submit" name="button" style="background-color: #6a443c; color: #fff; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Publish</button>
+            </div>
+        </form>
+    </header>
+
+<%- include("../partials/footer.ejs"); -%>
+   
+</body>
+</html>
