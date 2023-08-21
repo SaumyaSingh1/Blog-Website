@@ -16,6 +16,9 @@ mongoose.connect(MongoUrl, {
 }).then(()=>console.log("MongoDB connected"))
 .catch((err)=>console.log("not connected"));
 const app=express();
+// Set the views directory
+const viewsPath = path.join(__dirname, 'views');
+app.set('views', viewsPath);
 const port=process.env.PORT;
 
 app.set("view engine","ejs");
