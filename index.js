@@ -21,7 +21,7 @@ const viewsPath = path.join(__dirname, 'views');
 app.set('views', viewsPath);
 const port=process.env.PORT;
 // Set the views directory
-const viewsPath = path.join(new URL(import.meta.url).pathname, '..', 'views');
+//const viewsPath = path.join(new URL(import.meta.url).pathname, '..', 'views');
 app.set('views', viewsPath);
 app.set("view engine","ejs");
 //app.set("views", "D:\\Web Development\\Blog website\\views"); 
