@@ -17,6 +17,7 @@ const viewsPath = path.join(path.dirname(currentModulePath), 'views');
 mongoose.connect(MongoUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+   writeConcern: { w: 'majority' }
 }).then(()=>console.log("MongoDB connected"))
 .catch((err)=>console.log("not connected"));
 const app=express();
