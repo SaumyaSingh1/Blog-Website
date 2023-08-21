@@ -155,16 +155,6 @@ app.post("/newpage", upload.single("postImage"), async function (req, res) {
 });
 
 // Replace your homepage route to fetch the posts from the database
-app.get("/", async (req, res) => {
-  try {
-    const posts = await Post.find({});
-    res.render("index.ejs", { posts: posts });
-  } catch (error) {
-    // Handle error if the database query fails
-    console.error("Error fetching posts:", error);
-    res.render("index.ejs", { posts: [] });
-  }
-});
 //pos
 app.get("/posts/:postTitle", async(req, res) => {
     const { postTitle } = req.params;
@@ -193,18 +183,6 @@ app.get("/posts/:postTitle", async(req, res) => {
     }
     
   });
-  app.get("/", async (req, res) => {
-    try {
-      const posts = await Post.find({});
-      res.render("index.ejs", { posts: posts });
-    } catch (error) {
-      // Handle error if the database query fails
-      console.error("Error fetching posts:", error);
-      res.render("index.ejs", { posts: [] });
-    }
-  });
-// ... The rest of your routes ...
-
 app.listen(port,(req,res)=>{
 console.log(`Server started at ${port}`)
 });
