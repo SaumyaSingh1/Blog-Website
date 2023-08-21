@@ -6,12 +6,17 @@ import multer from "multer";//for file upload
 import path from "path";//to get path of file
  import _  from "lodash";//while using array to store img we compare title and send it to 
 import {Post} from "./postModel.js"; // Import the Mongoose model
-mongoose.connect("mongodb://127.0.0.1:27017/blog_db", {
+import {config} from "dotenv"
+config();
+const MongoUrl = process.env.MongoUrl;
+
+mongoose.connect(MongoUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+}).then(()=>console.log("MongoDB connected"))
+.catch((err)=>console.log("not connected"));
 const app=express();
-const port=3000;
+const port=process.env.PORT;
 
 app.set("view engine","ejs");
 //app.set("views", "D:\\Web Development\\Blog website\\views"); 
