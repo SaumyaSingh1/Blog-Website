@@ -25,9 +25,9 @@ app.set("view engine","ejs");
 //app.set("views", "D:\\Web Development\\Blog website\\views"); 
 app.set("views", "D:\\Web Development\\Blog website\\views");
 app.use(express.static("public"));
-// app.get("/",(req,res)=>{
-// res.render("index.ejs");
-// });
+app.get("/",(req,res)=>{
+res.render("index.ejs");
+});
 app.get("/", async (req, res) => {
   try {
     const posts = await Post.find({}); // Fetch all posts from the database
